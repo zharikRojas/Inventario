@@ -1,12 +1,18 @@
 const {DataTypes} = require('sequelize');
 const sequelize = require('../config/database');
-const Rol = require('./Rol');
+const Roles = require('./Roles');
 
-const Usuario = sequelize.define('Usuario', {
+const Users = sequelize.define('Users', {
     id: {
         type: DataTypes.INTEGER,
         primaryKey: true,
         autoIncrement: true
+    },
+    uuid:{
+        type: DataTypes.UUID,
+        defaultValue: DataTypes.UUIDV4,
+        allowNull: false,
+        unique: true
     },
     name: {
         type: DataTypes.STRING,
@@ -21,11 +27,11 @@ const Usuario = sequelize.define('Usuario', {
         allowNull: false
     }
 }, {
-    tableName: 'usuario',
+    tableName: 'users',
     timestamps: true
 });
 
-Rol.hasMany(Usuario, {foreignKey: 'rolId'});
-Usuario.belongsTo(Rol, {foreignKey: 'rolId'});
+Roles.hasMany(Users, {foreignKey: 'roleId'});
+Users.belongsTo(Roles, {foreignKey: 'roleId'});
 
-module.exports = Usuario;
+module.exports = Users;

@@ -1,12 +1,18 @@
 const {DataTypes} = require('sequelize');
 const sequelize = require('../config/database');
-const Usuario = require('./Usuario');
+const Users = require('./Users');
 
-const Factura = sequelize.define('Factura', {
+const Invoices = sequelize.define('Invoices', {
     id: {
         type: DataTypes.INTEGER,
         primaryKey: true,
         autoIncrement: true
+    },
+    uuid: {
+        type: DataTypes.UUID,
+        defaultValue: DataTypes.UUIDV4,
+        allowNull: false,
+        unique: true
     },
     code: {
         type: DataTypes.STRING,
@@ -21,11 +27,11 @@ const Factura = sequelize.define('Factura', {
         allowNull: false
     },
 }, {
-    tableName: 'factura',
+    tableName: 'invoices',
     timestamps: true
 });
 
-Factura.belongsTo(Usuario, {foreignKey: 'usuarioId'});
-Usuario.hasMany(Factura, {foreignKey: 'usuarioId'});
+Invoices.belongsTo(Users, {foreignKey: 'userId'});
+Users.hasMany(Invoices, {foreignKey: 'userId'});
 
-module.exports = Factura;
+module.exports = Invoices;

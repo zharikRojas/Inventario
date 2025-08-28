@@ -1,11 +1,17 @@
 const {DataTypes} = require('sequelize');
 const sequelize = require('../config/database');
 
-const Producto = sequelize.define('Producto', {
+const Products = sequelize.define('Products', {
     id: {
         type: DataTypes.INTEGER,
         primaryKey: true,
         autoIncrement: true
+    },
+    uuid: {
+        type: DataTypes.UUID,
+        defaultValue: DataTypes.UUIDV4,
+        allowNull: false,
+        unique: true
     },
     name: {
         type: DataTypes.STRING,
@@ -27,9 +33,13 @@ const Producto = sequelize.define('Producto', {
         type: DataTypes.DATE,
         allowNull: false
     },   
+    status: {
+        type: DataTypes.STRING,
+        allowNull: false
+    },   
 },{
-    tableName: 'producto',
+    tableName: 'products',
     timestamps: true
 });
 
-module.exports = Producto;
+module.exports = Products;

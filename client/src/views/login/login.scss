@@ -1,0 +1,71 @@
+.form {
+    padding: 28px;
+      z-index: 20;
+  padding: 10px;
+  background-color: #4b4545;
+  backdrop-filter: blur(8px);
+  border: 0.5px solid rgba(255, 255, 255, 0.2);
+  width: 100%;
+  height: auto;
+  max-width: 400px;
+  border-radius: 30px;
+  margin-right: 5%;
+  margin-left: 5%;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.6);
+  transition: all 0.3s ease-in-out;
+}
+.LoginScreen {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100vw;
+  height: 100vh;
+  background-color: #02010100;
+  background-size: 100% 100vh;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  position: relative;
+}
+.input {
+  border-radius: 8px;
+  transition: all 0.5s;
+  margin-bottom: 15px;
+  margin-top: 8px;
+
+}
+label {
+  color: #81a5ce;
+  font-weight: 400;
+  margin-bottom: 10px !important;
+}
+h2 {
+  text-align: center;
+  margin: 10px 0px;
+  color: #81a5ce;
+  font-weight: 400;
+}
+.content_link_register {
+  text-align: center;
+  margin-top: 15px;
+  text-decoration: none;
+
+  .link_register {
+    text-decoration: none;
+    color: #81a5ce;
+    font-weight: 500;
+  }
+
+}
+.button {
+  background-color: #81a5ce;
+  color: #e4dedc;
+  border-radius: 10px;
+  margin: auto;
+  margin-top: 15px;
+  width: 150px;
+  border: none;
+  text-decoration: none;
+  padding: 10px;
+  cursor: pointer;
+  transition: all 0.3s;
+}
